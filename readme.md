@@ -1,0 +1,1 @@
+A simple Yelp-like camping website based on Colt Steele's "The Web Developer Bootcamp" Course.
