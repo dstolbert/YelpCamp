@@ -15,7 +15,7 @@ var campgroundRoutes = require("./routes/campgrounds"),
     commentRoutes    = require("./routes/comments"),
     indexRoutes      = require("./routes/index");
 
-mongoose.connect((process.env.mlab || "mongodb://localhost/yelp_camp"), {useMongoClient: true});
+mongoose.connect((process.env.MLAB || "mongodb://localhost/yelp_camp"), {useMongoClient: true});
 mongoose.Promise = global.Promise;
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
