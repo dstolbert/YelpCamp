@@ -15,7 +15,7 @@ var campgroundRoutes = require("./routes/campgrounds"),
     commentRoutes    = require("./routes/comments"),
     indexRoutes      = require("./routes/index");
 
-mongoose.connect("mongodb://localhost/yelp_camp", {useMongoClient: true});
+mongoose.connect((process.env.mlab || "mongodb://localhost/yelp_camp"), {useMongoClient: true});
 mongoose.Promise = global.Promise;
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
@@ -26,7 +26,7 @@ app.use(flash());
 
 // Passport Config
 app.use(require("express-session")({
-    secret: "The most secret of secret secrets",
+    secret: process.env.SECRET || "The most secret of secret secrets",
     resave: false,
     saveUninitialized: false
 }));
